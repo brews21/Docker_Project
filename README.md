@@ -1,40 +1,31 @@
 # Docker Project
 
-This repository contains Docker-related files, examples, and notes.
+This repository contains multiple Docker project examples.
 
-## Suggested Layout
+## Projects
 
-```text
-.
-├── README.md
-├── AGENTS.md
-├── dockerfiles/
-├── compose/
-└── examples/
-```
+- `flask_app/`: Docker image and Compose setup for a small Flask app.
 
-- `dockerfiles/`: standalone Dockerfiles or image build contexts.
-- `compose/`: Docker Compose files for multi-container examples.
-- `examples/`: sample apps, configs, or notes that support the Docker files.
-
-## Common Commands
+## Flask App
 
 Build an image:
 
 ```bash
-docker build -t image-name -f dockerfiles/Dockerfile .
+docker build -t flask-docker-example:local -f flask_app/dockerfiles/flask-app.Dockerfile flask_app
 ```
 
 Run a Compose stack:
 
 ```bash
-docker compose -f compose/docker-compose.yml up
+docker compose -f flask_app/compose/docker-compose.yml up
 ```
+
+The app listens on <http://localhost:5000>.
 
 Stop and remove a Compose stack:
 
 ```bash
-docker compose -f compose/docker-compose.yml down
+docker compose -f flask_app/compose/docker-compose.yml down
 ```
 
 ## Notes
