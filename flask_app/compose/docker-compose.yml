@@ -1,10 +1,20 @@
 services:
+  nginx:
+    build:
+      context: ..
+      dockerfile: dockerfiles/nginx.Dockerfile
+    image: flask-nginx-example:local
+    depends_on:
+      - flask-app
+    ports:
+      - "8080:80"
+
   flask-app:
     build:
       context: ..
       dockerfile: dockerfiles/flask-app.Dockerfile
     image: flask-docker-example:local
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
     environment:
       FLASK_ENV: production

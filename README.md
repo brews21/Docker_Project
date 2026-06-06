@@ -4,7 +4,8 @@ This repository contains multiple Docker project examples.
 
 ## Projects
 
-- `flask_app/`: Docker image and Compose setup for a small Flask app.
+- `flask_app/`: Docker image and Compose setup for a small Flask app behind
+  Nginx.
 
 ## Flask App
 
@@ -20,7 +21,7 @@ Run a Compose stack:
 docker compose -f flask_app/compose/docker-compose.yml up
 ```
 
-The app listens on <http://localhost:5000>.
+Nginx listens on <http://localhost:8080> and proxies to the Flask app.
 
 Stop and remove a Compose stack:
 
